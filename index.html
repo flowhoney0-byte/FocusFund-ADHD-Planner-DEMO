@@ -1,14 +1,14 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>FocusFund – FREE DEMO</title>
 <style>
-:root{--bg:#f6f5fb;--cd:#fff;--tx:#1d1b2e;--mu:#6b6882;--bd:#e5e2f0;--ac:#6d4aff;--ok:#1f9d6b;--bad:#d64550;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#F3F6FD;--cd:#fff;--tx:#1f2430;--mu:#7b8499;--bd:#E8ECF5;--ac:#FF5A5F;--ok:#1f9d6b;--bad:#d64550;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 [data-t=ocean]{--ac:#0a7ea4}[data-t=forest]{--ac:#2e8b57}[data-t=rose]{--ac:#d6366f}[data-t=sunset]{--ac:#d9680f}[data-t=slate]{--ac:#475569}
 [data-d="1"]{--bg:#14131c;--cd:#1e1d2a;--tx:#efeefa;--mu:#a19fb8;--bd:#32304a;--ok:#3ccf91;--bad:#ff6b76}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:84px}
-header{display:flex;justify-content:space-between;align-items:center;max-width:720px;margin:auto;padding:14px 16px 4px}
-h1{font-size:19px;margin:0}h2{font-size:16px;margin:18px 0 8px}main{max-width:720px;margin:auto;padding:8px 16px}
-.card{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:14px;margin:10px 0}
-.hero{background:linear-gradient(135deg,var(--ac),color-mix(in srgb,var(--ac) 55%,#000));color:#fff;border:0}.hero.neg{background:linear-gradient(135deg,#d64550,#8e2430)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-left:64px;min-height:100vh;display:flex;flex-direction:column}
+header{display:flex;justify-content:space-between;align-items:center;padding:6px 0 10px}
+h1{font-size:34px;margin:0;color:var(--ac);font-weight:700;letter-spacing:-.5px}h2{font-size:16px;margin:18px 0 8px}main{padding:0}
+.card{background:var(--cd);border:0;border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 6px 24px #1f24300f}
+.hero{background:linear-gradient(135deg,var(--ac),color-mix(in srgb,var(--ac) 80%,#000));color:#fff;border:0}.hero.neg{background:linear-gradient(135deg,#d64550,#8e2430)}
 .big{font-size:38px;font-weight:800;letter-spacing:-1px}.mu{color:var(--mu);font-size:14px}.hero .mu{color:#ffffffcc}
 .bar{height:8px;border-radius:9px;background:#00000026;margin-top:10px;overflow:hidden}.bar i{display:block;height:100%;background:#fff;border-radius:9px}
 .card .bar{background:var(--bd)}.card .bar i{background:var(--ac)}.card .bar.over i{background:var(--bad)}
@@ -19,18 +19,26 @@ button{cursor:pointer;font-weight:600}button.p{background:var(--ac);color:#fff;b
 .ok{color:var(--ok)}.bad{color:var(--bad)}.tag{font-size:12px;background:var(--bg);border:1px solid var(--bd);border-radius:9px;padding:1px 8px;color:var(--mu)}
 .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.cal b{font-size:12px;color:var(--mu)}.cal span{padding:6px 0;border-radius:10px;position:relative;font-size:14px;min-height:38px}
 .cal .now{background:var(--ac);color:#fff}.cal u{display:inline-block;width:6px;height:6px;border-radius:9px;margin:0 1px}.u1{background:var(--bad)}.u2{background:var(--ok)}
-nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--cd);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom,0px)}
-nav button{flex:1;border:0;background:none;font-size:11px;padding:8px 0;border-radius:0;color:var(--mu)}nav button.on{color:var(--ac)}nav button span{display:block;font-size:20px}
+nav{position:fixed;left:0;top:0;bottom:0;width:64px;background:#1c1c1e;display:flex;flex-direction:column;gap:4px;padding:14px 10px;z-index:30;overflow:hidden;transition:width .25s;border-radius:0 24px 24px 0;box-shadow:0 0 30px #00000020}nav.open{width:220px}
+nav button{display:flex;align-items:center;gap:14px;width:100%;min-height:44px;padding:0 13px;border:0;border-radius:14px;background:none;color:#b9bcc6;font-size:15px;font-weight:600;white-space:nowrap;position:relative}nav button:hover{background:#ffffff14;color:#fff}nav button.on{background:var(--ac);color:#fff}
+nav svg{flex:0 0 22px;width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}nav .lb{opacity:0;transition:opacity .2s}nav.open .lb{opacity:1}
+nav .bd{position:absolute;left:28px;top:5px;background:#fff;color:var(--ac);font-size:10px;min-width:16px;height:16px;border-radius:9px;text-align:center;line-height:16px;padding:0 4px}
+.wrap{display:flex;gap:22px;max-width:1240px;margin:0 auto;width:100%;padding:18px 20px;flex:1;align-items:flex-start}.col{flex:1;min-width:0;max-width:820px}
+#rp{display:none;width:300px;flex:0 0 300px;position:sticky;top:18px}.rg{margin:12px 0}
+@media(min-width:1180px){#rp{display:block}}@media(max-width:600px){.wrap{padding:12px}h1{font-size:28px}.big{font-size:32px}}
+footer{text-align:center;padding:18px 12px 22px;color:var(--mu);font-size:13px}footer b{color:var(--tx)}
 .sw{display:flex;gap:10px;flex-wrap:wrap}.sw button{width:44px;border-radius:50%;padding:0;border:3px solid transparent}.sw button.on{border-color:var(--tx)}
-#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:12px;opacity:0;transition:.25s;pointer-events:none}#toast.show{opacity:1}
+#toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:12px;opacity:0;transition:.25s;pointer-events:none}#toast.show{opacity:1}
 </style></head><body>
-<header><h1>🎯 FocusFund <span class="tag" style="background:var(--ac);color:#fff;border:0">DEMO</span></h1><button class="g" onclick="S.focus=!S.focus;save();draw()" id="fb"></button></header>
-<main id="app"></main><nav id="nav"></nav><div id="toast"></div>
+<div class="wrap"><div class="col"><header><div><h1 id="ttl"></h1><div class="mu">FocusFund · ADHD Budget Planner <span class="tag" style="background:var(--ac);color:#fff;border:0">DEMO</span></div></div><button class="g" onclick="S.focus=!S.focus;save();draw()" id="fb"></button></header>
+<main id="app"></main></div><aside id="rp"></aside></div><footer>All Rights Reserved <b>BrandingStudioCo</b></footer><nav id="nav"></nav><div id="toast"></div>
 <script>
-const CATS=['Food','Transport','Bills','Fun','Shopping','Health','Other'],TH=[['violet','#6d4aff'],['ocean','#0a7ea4'],['forest','#2e8b57'],['rose','#d6366f'],['sunset','#d9680f'],['slate','#475569']];
-const D0={cur:'Rs',theme:'violet',mode:'auto',focus:false,inc:[],bills:[],exp:[],funds:[],debts:[],bud:{},wish:[],skipped:0,rem:3};
+const CATS=['Food','Transport','Bills','Fun','Shopping','Health','Other'],TH=[['coral','#ff5a5f'],['ocean','#0a7ea4'],['forest','#2e8b57'],['rose','#d6366f'],['sunset','#d9680f'],['slate','#475569']];
+const D0={cur:'$',theme:'coral',mode:'light',focus:false,inc:[],bills:[],exp:[],funds:[],debts:[],bud:{},wish:[],skipped:0,rem:3};
 let S,tab='today';
 try{S=Object.assign({},D0,JSON.parse(localStorage.getItem('ffdemo')||'{}'))}catch(e){S=structuredClone(D0)}
+if(S.theme==='violet')S.theme='coral';
+if(!['$','£','€'].includes(S.cur))S.cur='$';
 const save=()=>{try{localStorage.setItem('ffdemo',JSON.stringify(S))}catch(e){}};
 const $=s=>document.querySelector(s),sum=a=>a.reduce((x,y)=>x+y,0),uid=()=>Math.random().toString(36).slice(2,9);
 const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
@@ -92,15 +100,11 @@ return weekly()+annual()+`<div class="card"><b>🧠 24-hour wait list</b><p clas
 <div class="card"><b>📊 Monthly limits per category</b><p class="mu">Optional. Leave 0 for no limit.</p>${CATS.map(k=>`<div class="row" style="align-items:center"><span>${k}</span><input type="number" value="${S.bud[k]||''}" placeholder="0" onchange="S.bud['${k}']=+this.value;save();toast('Saved')"></div>`).join('')}</div>
 <div class="card"><b>📈 This month</b><div class="it"><span>Income</span><span class="ok">${M(c.inc)}</span></div><div class="it"><span>Bills</span><span>${M(c.bills)}</span></div><div class="it"><span>Savings plan</span><span>${M(c.fm)}</span></div><div class="it"><span>Spent</span><span>${M(c.spent)}</span></div><div class="it"><b>Left</b><b class="${c.safe<0?'bad':'ok'}">${M(c.safe)}</b></div></div>`},
 more(){return `<div class="card"><b>🎨 Theme</b><div class="sw" style="margin:10px 0">${TH.map(t=>`<button class="${S.theme==t[0]?'on':''}" style="background:${t[1]}" onclick="S.theme='${t[0]}';save();apply();draw()" aria-label="${t[0]}"></button>`).join('')}</div>
-<div class="row"><select onchange="S.mode=this.value;save();apply()">${['auto','light','dark'].map(m=>`<option ${S.mode==m?'selected':''} value="${m}">${m[0].toUpperCase()+m.slice(1)} mode</option>`).join('')}</select><select onchange="S.cur=this.value;save();toast('Saved')">${['Rs','$','£','€','AED','₹'].map(m=>`<option ${S.cur==m?'selected':''}>${m}</option>`).join('')}</select></div></div>
+<div class="row"><select onchange="S.mode=this.value;save();apply()">${['auto','light','dark'].map(m=>`<option ${S.mode==m?'selected':''} value="${m}">${m[0].toUpperCase()+m.slice(1)} mode</option>`).join('')}</select><select onchange="S.cur=this.value;save();toast('Saved')">${['$','£','€'].map(m=>`<option ${S.cur==m?'selected':''}>${m}</option>`).join('')}</select></div></div>
 <div class="card"><b>🔔 Bill reminders</b><div class="row"><select onchange="S.rem=+this.value;save();toast('Saved')">${[0,1,2,3,5,7].map(n=>`<option value="${n}" ${S.rem==n?'selected':''}>${n?'Remind '+n+' days before due':'Remind on due day only'}</option>`).join('')}</select></div></div>
 <div class="card"><b>💾 Backup & restore</b><p class="mu">Your data is stored only in this browser on this device. No account, no bank link, nothing is sent anywhere. To move devices, copy the backup and paste it on the other device.</p><textarea id="bk" rows="4" placeholder="Backup text appears here / paste to restore"></textarea><div class="row"><button onclick="bkp()">Copy backup</button><button onclick="csv()">Copy CSV</button><button class="p" onclick="rst()">Restore</button></div></div>
 <div class="card"><button style="width:100%;color:var(--bad)" onclick="if(confirm('Delete ALL data?')){S=structuredClone(D0);save();draw()}">Reset everything</button></div>
 <p class="mu" style="text-align:center">Not financial advice. Works on phone and desktop.</p>`}};
-const lockCard=t=>`<div class="card" style="text-align:center"><div style="font-size:42px">🔒</div><b>${t}</b><p class="mu">This part is included in the full FocusFund planner.</p><p><b>Get the full version on Etsy</b> to unlock everything.</p></div>`;
-views.money=()=>lockCard('Savings goals & debt payoff');
-views.plan=()=>lockCard('24-hour wait list, weekly review, annual overview & category limits');
-views.more=()=>`<div class="card"><b>🎨 Theme</b><div class="sw" style="margin:10px 0">${TH.slice(0,2).map(t=>`<button class="${S.theme==t[0]?'on':''}" style="background:${t[1]}" onclick="S.theme='${t[0]}';save();apply();draw()" aria-label="${t[0]}"></button>`).join('')}</div><div class="row"><select onchange="S.mode=this.value;save();apply()">${['auto','light','dark'].map(m=>`<option ${S.mode==m?'selected':''} value="${m}">${m[0].toUpperCase()+m.slice(1)} mode</option>`).join('')}</select></div><p class="mu">4 more themes in the full version.</p></div>`+lockCard('Backup, CSV export & reminder settings')+`<div class="card"><button style="width:100%" onclick="if(confirm('Reset demo data?')){S=structuredClone(D0);save();draw()}">Reset demo</button></div><p class="mu" style="text-align:center">Your demo data stays in this browser only.</p>`;
 function sim(o){let d=S.debts.map(x=>({...x})),m=0,i=0;const pool=sum(d.map(x=>x.min));while(d.some(x=>x.bal>0)&&m<600&&pool>0){m++;let p=pool;d.forEach(x=>{if(x.bal>0){const t=x.bal*x.rate/1200;x.bal+=t;i+=t;const a=Math.min(x.min,x.bal);x.bal-=a;p-=a}});for(const x of o(d)){if(x.bal>0&&p>0){const a=Math.min(p,x.bal);x.bal-=a;p-=a}}}return{m:pool>0?m:600,i}}
 function del(k,id){S[k]=S[k].filter(x=>x.id!==id);save();draw()}
 function go(t){tab=t;draw();scrollTo(0,0)}
@@ -116,7 +120,19 @@ function wb(id,buy){const w=S.wish.find(x=>x.id===id);if(buy)S.exp.unshift({id:u
 function bkp(){const t=JSON.stringify(S),e=$('#bk');e.value=t;e.select();try{navigator.clipboard.writeText(t).then(()=>toast('Copied ✓'))}catch(x){toast('Copy the text in the box')}}
 function rst(){try{const o=JSON.parse(val('bk'));S=Object.assign({},D0,o);save();apply();draw();toast('Restored ✓')}catch(e){toast('Invalid backup text')}}
 function apply(){const dk=S.mode=='dark'||(S.mode=='auto'&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.t=S.theme;document.documentElement.dataset.d=dk?'1':'0'}
-function draw(){$('#app').innerHTML=(tab=='today'?'<div class="card" style="background:var(--ac);color:#fff;border:0"><b>👋 Free demo</b><br>Try the core features. Limits: 1 income, 3 bills, 20 expenses. Savings goals, debt payoff, wait list, weekly review, annual overview, limits, backup and all themes are in the full version.</div>':'')+views[tab]();$('#fb').textContent=S.focus?'🎯 Focus: ON':'🎯 Focus: off';
-$('#nav').innerHTML=[['today','🏠','Today'],['spend','💸','Spend'],['bills','📅','Bills'+(due().length?' ('+due().length+')':'')],['money','🔒','Money'],['plan','🔒','Plan'],['more','⚙️','More']].map(t=>`<button class="${tab==t[0]?'on':''}" onclick="go('${t[0]}')"><span>${t[1]}</span>${t[2]}</button>`).join('')}
+const IC={today:'<path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',spend:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>',bills:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',money:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',plan:'<path d="M18 20V10M12 20V4M6 20v-6"/>',more:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>'};
+const svg=p=>`<svg viewBox="0 0 24 24">${p}</svg>`,TT={today:'Today',spend:'Spend',bills:'Bills',money:'Money 🔒',plan:'Plan 🔒',more:'More'};
+function rail(){const c=calc(),pc=f=>Math.min(100,f.saved/f.goal*100||0),g=S.funds.slice(0,4).map(f=>`<div class="rg"><div style="display:flex;justify-content:space-between"><span>${esc(f.name)}</span><span class="mu">${Math.round(pc(f))}%</span></div><div class="bar"><i style="width:${pc(f)}%"></i></div></div>`).join('')||'<p class="mu">Add savings goals in Money.</p>',u=S.bills.filter(b=>b.p!==ym()).sort((a,b)=>a.day-b.day).slice(0,4).map(b=>`<div class="it"><span>${esc(b.name)}<br><span class="mu" style="font-size:12px">Day ${b.day}</span></span><b>${M(b.amt)}</b></div>`).join('')||'<p class="mu">No unpaid bills 🎉</p>';
+return `<div class="card"><b>Left this month</b><div class="big" style="font-size:28px;color:var(--ac)">${M(c.safe)}</div><div class="mu">${M(c.per)} per day</div></div><div class="card"><b>Progress</b>${g}</div><div class="card"><b>Upcoming bills</b>${u}</div>`}
+function sb(){$('#nav').classList.toggle('open')}
+document.addEventListener('click',e=>{const n=$('#nav');if(n.classList.contains('open')&&!e.composedPath().includes(n))n.classList.remove('open')});
+function draw(){$('#app').innerHTML=(tab=='today'?'<div class="card" style="background:var(--ac);color:#fff"><b>👋 Free demo</b><br>Try the core features. Limits: 1 income, 3 bills, 20 expenses. Savings goals, debt payoff, wait list, weekly review, annual overview, limits, backup and all themes are in the full version.</div>':'')+views[tab]();$('#ttl').textContent=TT[tab];$('#rp').innerHTML=rail();$('#fb').textContent=S.focus?'🎯 Focus: ON':'🎯 Focus: off';
+const dc=due().length;$('#nav').innerHTML=`<button onclick="sb()" aria-label="Menu">${svg('<path d="M3 6h18M3 12h18M3 18h18"/>')}<span class="lb">FocusFund</span></button><div style="height:10px"></div>`+Object.keys(TT).map(k=>`<button class="${tab==k?'on':''}" onclick="go('${k}');if(innerWidth<800)$('#nav').classList.remove('open')" aria-label="${TT[k]}">${svg(IC[k])}<span class="lb">${TT[k]}</span>${k=='bills'&&dc?`<b class="bd">${dc}</b>`:''}</button>`).join('')}
+const lockCard=t=>`<div class="card" style="text-align:center"><div style="font-size:42px">🔒</div><b>${t}</b><p class="mu">This part is included in the full FocusFund planner.</p><p><b>Get the full version on Etsy</b> to unlock everything.</p></div>`;
+views.money=()=>lockCard('Savings goals & debt payoff');
+views.plan=()=>lockCard('24-hour wait list, weekly review, annual overview & category limits');
+views.more=()=>`<div class="card"><b>🎨 Theme</b><div class="sw" style="margin:10px 0">${TH.slice(0,2).map(t=>`<button class="${S.theme==t[0]?'on':''}" style="background:${t[1]}" onclick="S.theme='${t[0]}';save();apply();draw()" aria-label="${t[0]}"></button>`).join('')}</div><div class="row"><select onchange="S.cur=this.value;save();draw()">${['$','£','€'].map(m=>`<option ${S.cur==m?'selected':''}>${m}</option>`).join('')}</select><select onchange="S.mode=this.value;save();apply()">${['light','dark','auto'].map(m=>`<option ${S.mode==m?'selected':''} value="${m}">${m[0].toUpperCase()+m.slice(1)} mode</option>`).join('')}</select></div><p class="mu">4 more themes in the full version.</p></div>`+lockCard('Backup, CSV export & reminder settings')+`<div class="card"><button style="width:100%" onclick="if(confirm('Reset demo data?')){S=structuredClone(D0);save();draw()}">Reset demo</button></div><p class="mu" style="text-align:center">Your demo data stays in this browser only.</p>`;
+function rail(){const c=calc(),u=S.bills.filter(b=>b.p!==ym()).sort((a,b)=>a.day-b.day).slice(0,4).map(b=>`<div class="it"><span>${esc(b.name)}<br><span class="mu" style="font-size:12px">Day ${b.day}</span></span><b>${M(b.amt)}</b></div>`).join('')||'<p class="mu">No unpaid bills 🎉</p>';
+return `<div class="card"><b>Left this month</b><div class="big" style="font-size:28px;color:var(--ac)">${M(c.safe)}</div><div class="mu">${M(c.per)} per day</div></div><div class="card"><b>Upcoming bills</b>${u}</div><div class="card" style="text-align:center"><b>🔒 Goals, debt & more</b><p class="mu">Unlock everything in the full version on Etsy.</p></div>`}
 apply();draw();
 </script></body></html>
